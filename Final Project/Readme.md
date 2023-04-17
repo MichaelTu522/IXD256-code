@@ -1,4 +1,12 @@
+# Michael Tu - Final Project
+## Freedom Sworn & Magic Glove
+
+
 ## Introduction   
+
+In the final project, there was three different ideas in my initial thoughts:
+### A pair of Magic Gloves which can vibrate when receiving different feedback
+![Magic Wand](../Final Project/Images/MagicWand.png) 
 
 Provide a description of your initial project idea and include images of the concept sketches that you created in Part 1 of this assignment.  Explain the reasoning behind your final choice of the project concept, whether it’s based on one of the initial sketches, a combination of or a departure from the original concepts.  
   
