@@ -6,61 +6,368 @@
 
 In the final project, there was three different ideas in my initial thoughts:
 ### A pair of Magic Gloves which can vibrate when receiving different feedback
+![Magic Gloves](../Final%20Project/Images/MagicGloves.png) 
+### A Magic Wand which could use motion to control different smart furnitures
 ![Magic Wand](../Final%20Project/Images/MagicWand.png) 
+### A Music Keyboard to control the character playing instruments in the game "Genshin Impact"
+![Magic Keyboard](../Final%20Project/Images/MagicKeyboard.png) 
 
-Provide a description of your initial project idea and include images of the concept sketches that you created in Part 1 of this assignment.  Explain the reasoning behind your final choice of the project concept, whether it’s based on one of the initial sketches, a combination of or a departure from the original concepts.  
-  
-### Formatting Tips  
-   
-To format text into separate lines or paragraphs with [markdown syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax), include at least 2 spaces at the end.  The extra spaces act as line breaks.  
+After the first round of critic, I was thinking about:
+## Why not just combine all of them together?
 
-Links can be inserted with [link text in square brackets] followed by (link URL in parantheses).  For example, the markdown for [link to this page](https://pa-nik.github.io/SP23-IXD-256/documentation-template/) on GitHub Pages is:  
-`[link to this page](https://pa-nik.github.io/SP23-IXD-256/documentation-template/)`  
-  
-To insert images, the syntax is almost the same with the addition of exclamation point `!` before [image description in square brackets] followed by (image link in parentheses).  The image below is included with `![led and button circuit](../class02/button_led_bb.png)` syntax:   
-![led and button circuit](../class02/button_led_bb.png) 
+### That's why I came up with both of my final ideas:
+## A sword and A Glove to play the game "Genshin Impact"
+![Final Concept Sketch](../Final%20Project/Images/FinalConceptSketch.png) 
+For the sword, I want it to be the sword used by my favorite male character: Kaedehara Kazuha
+![Kazuha and his sword](../Final%20Project/Images/Kazuha.png) 
+And the name of the sword is "Freedom Sworn"
+
+For the glove, I still want to combine the vibration feedback, and by adding sensors like: Bent Sensor and Pressure Sensor, I can make the glove to control multiple things like Walk, Run and Jump, which could be useful when playing the game.
 
 ## Implementation   
 
-Explain your process of prototype development including all applicable aspects such as hardware (electronics), firmware (MicroPython code), software (HTML/CSS/JavaScript or other code), integrations (Adafruit IO, IFTTT, etc.), enclosure and mechanical design.  Use a separate subheader for each part:
+During my development, I was thinking about how I could apply all those ingredients in all the concept I had, so I just tried to apply all of them.
+### The Hardware Part includes:
+* 2 Atom Matrix (Using their 25-Pixel Screen and 3-Axis Accelerator Mainly)
+* A bent / Pressure Sensor for The Magic Glove
+* A Pressure Sensor for The Magic Glove
+* A LED Light Strip for The FreedomSworn
+* A Dual-Button Pack for The FreedomSworn
 
-### Hardware
+### The Software Part Includes:
+* Circuit Python
 
-List all the separate hardware components used in your project and briefly explain what they do.  To create a list with markdown syntax, use `-`, `*`, or `+` characters with each line of text:  
-* item 1  
-* item 2   
-* etc.  
+### The Integrations Include:
+* UIFlow
+* Bluetooth
+* NeoPixel
+* IMU
 
-Include a schematic diagram image (Fritzing is recommended, but hand-drawn is OK) showing all the wiring connections between the M5Stack Atom Matrix board and other components.  
+### The Enclosure Part Includes
+* Laser Cut Sword(Self Sketch and Redesign from Genshin Impact)
+* A Left-Hand Anqier Winter Glove
 
-In addition, include at least one photo showing your hardware wiring.  This can be several close-ups with the goal of showing how the wiring connections are made.  
+## Schematic diagram
 
-### Firmware   
+# The Diagram for FreedomSworn 
+![Diagram for FreedomSworn](../Final%20Project/FreedomSwornDiagram) 
+# The Diagram for MagicGlove
+![Diagram for MagicGlove](../Final%20Project/MagicGloveDiagram) 
 
-Provide a link to your MicroPython code and explain a few important parts that make your prototype work.  Most likely you should explain the inputs/outputs used in your code and how they affect the behavior of the prototype.
+## Making Process / Hardware Wiring
+![Kazuha and his sword](../Final%20Project/Images/Process.png) 
+
+### Firmware and Codes 
+
+![Code for FreedomSworn](../Final%20Project/FreedomSworn.py) 
+![Code for Magic Glove](../Final%20Project/MagicGlove.py) 
 
 To include code snippets, you can use the code block markdown, like this:
-
+For the glove, the Command of "JUMP" and "Vibration" is like:
 ``` Python  
-if(input_val > 1000):  # sensor value higher than threshold
-   led_pin.on()  # turn on LED
+if (analog_val <= 4000): #If the button Press is detected
+            if (conn_handle != None):
+                send_char(' ') #Space Character for Jump
+                print('Jump!')
+                motor_pwm.duty(50) #Turn on the motor for 50ms
+                display_digit(1) #Start the "JUMP" Animation
+                sleep_ms(100)
+                motor_pwm.duty(0)
+                display_digit(2)
+                sleep_ms(100)
+                motor_pwm.duty(50)
+                display_digit(3)
+                sleep_ms(100)
+                motor_pwm.duty(0)
+                display_digit(4)
+                sleep_ms(100)
+                display_digit(5)
+                sleep_ms(100)
+                display_digit(16)
+                sleep_ms(100)
 ```
 
-### Software   
+I also made some preparation for the "JUMP" and "RUN" Animations
+``` Python 
+jump_1 = [
+    0,0,0,0,0,
+    0,0,0,0,0,
+    0,0,1,0,0,
+    0,0,0,0,0,
+    0,0,0,0,0
+]
 
-If applicable, explain the important software components of your project with relevant code snippets and links.  
+jump_2 = [
+    0,0,0,0,0,
+    0,0,1,0,0,
+    0,1,0,1,0,
+    0,0,1,0,0,
+    0,0,0,0,0
+]
 
-### Integrations   
+jump_3 = [
+    0,0,1,0,0,
+    0,1,0,1,0,
+    1,0,0,0,1,
+    0,1,0,1,0,
+    0,0,1,0,0
+]
 
-Include a link to and/or screenshots of other functional components of your project, like Adafruit IO feeds, dashboards, IFTTT applets, etc.  In general, think of your audience as someone new trying to learn how to make your project and make sure to cover anything helpful to explain the functional parts of it.
+jump_4 = [
+    0,1,0,1,0,
+    1,0,0,0,1,
+    0,0,0,0,0,
+    1,0,0,0,1,
+    0,1,0,1,0
+]
+
+jump_5 = [
+    1,0,0,0,1,
+    0,0,0,0,0,
+    0,0,0,0,0,
+    0,0,0,0,0,
+    1,0,0,0,1
+]
+
+blank = [
+    0,0,0,0,0,
+    0,0,0,0,0,
+    0,0,0,0,0,
+    0,0,0,0,0,
+    0,0,0,0,0
+]
+run_color = (123,194,97)
+jump_color = (255, 255, 20)
+dot_color = (0,0,0)
+
+# define a function to get color for a pixel:
+def get_pixel_color(n):
+    if(n == 1):
+        return jump_color
+    elif(n == 2):
+        return run_color
+    else:
+        return dot_color
+
+def display_digit(m):
+    for i in range(25):
+            if(m == 1):
+                neopixel_strip[i] = get_pixel_color(jump_1[i])
+            if(m == 2):
+                neopixel_strip[i] = get_pixel_color(jump_2[i])
+            if(m == 3):
+                neopixel_strip[i] = get_pixel_color(jump_3[i])
+            if(m == 4):
+                neopixel_strip[i] = get_pixel_color(jump_4[i])
+            if(m == 5):
+                neopixel_strip[i] = get_pixel_color(jump_5[i])
+            if(m == 6):
+                neopixel_strip[i] = get_pixel_color(run_1[i])
+            if(m == 7):
+                neopixel_strip[i] = get_pixel_color(run_2[i]) 
+            if(m == 8):
+                neopixel_strip[i] = get_pixel_color(run_3[i]) 
+            if(m == 9):
+                neopixel_strip[i] = get_pixel_color(run_4[i]) 
+            if(m == 10):
+                neopixel_strip[i] = get_pixel_color(run_5[i]) 
+            if(m == 11):
+                neopixel_strip[i] = get_pixel_color(run_5[i])
+            if(m == 12):
+                neopixel_strip[i] = get_pixel_color(run_6[i]) 
+            if(m == 13):
+                neopixel_strip[i] = get_pixel_color(run_7[i]) 
+            if(m == 14):
+                neopixel_strip[i] = get_pixel_color(run_8[i]) 
+            if(m == 15):
+                neopixel_strip[i] = get_pixel_color(run_9[i]) 
+            if(m == 16):
+                neopixel_strip[i] = get_pixel_color(blank[i])                           
+    neopixel_strip.write()
+```
+
+For the sword, I also did the "Send Char" Function to make the attack, meanwhile the character is Attacking, the lightstrip would also be turned on. The brightness of the strip is depending on how much force you used to do the attack.
+The code is like this:
+``` Python  
+if (analog_val <= 4000): #If the button Press is detected
+            if (conn_handle != None):
+                send_char(' ') #Space Character for Jump
+                print('Jump!')
+                motor_pwm.duty(50) #Turn on the motor for 50ms
+                display_digit(1) #Start the "JUMP" Animation
+                sleep_ms(100)
+                motor_pwm.duty(0)
+                display_digit(2)
+                sleep_ms(100)
+                motor_pwm.duty(50)
+                display_digit(3)
+                sleep_ms(100)
+                motor_pwm.duty(0)
+                display_digit(4)
+                sleep_ms(100)
+                display_digit(5)
+                sleep_ms(100)
+                display_digit(16)
+                sleep_ms(100)
+```acc_x = imu0.acceleration[0]
+   acc_y_prev = acc_y  # save the last acc_y value
+   acc_y = imu0.acceleration[1]  # get the new acc_y value
+   acc_z = imu0.acceleration[2]
+   #print("y is " + str(acc_y))
+   acc_y_diff = acc_y - acc_y_prev
+   print('acc_y difference: ', acc_y_diff)
+   color_value_255 = map_value(acc_y_diff, -2, 2, -10, 10)
+   if(acc_y_diff > 0.5 or acc_y_diff < -0.5):
+                            if (conn_handle != None):
+                                print('Attack!')
+                                send_char('0')
+                                sleep_ms(300)
+                        if(color_value_255 > 0):
+                            color_value_255 == 0 - color_value_255
+                            print(color_value_255)
+                        for pixel_index in range(25):
+                            neopixel_strip[pixel_index] = (0, color_value_255, color_value_255)
+                        neopixel_strip.write()
+```
+
+### Software & Integrations 
+
+Since I didn't use the IFTTT and AdafruitIO, the most important part for me is the bluetooth, the function to apply is also complicated
+``` Python
+ble = bluetooth.BLE()
+ble.active(1)
+ble.irq(ble_irq)
+
+UUID = bluetooth.UUID
+
+F_READ = bluetooth.FLAG_READ
+F_WRITE = bluetooth.FLAG_WRITE
+F_READ_WRITE = bluetooth.FLAG_READ | bluetooth.FLAG_WRITE
+F_READ_NOTIFY = bluetooth.FLAG_READ | bluetooth.FLAG_NOTIFY
+
+ATT_F_READ = 0x01
+ATT_F_WRITE = 0x02
+
+hid_service = (
+    UUID(0x1812),  # Human Interface Device
+    (
+        (UUID(0x2A4A), F_READ),  # HID information
+        (UUID(0x2A4B), F_READ),  # HID report map
+        (UUID(0x2A4C), F_WRITE),  # HID control point
+        (UUID(0x2A4D), F_READ_NOTIFY, ((UUID(0x2908), ATT_F_READ),)),  # HID report / reference
+        (UUID(0x2A4D), F_READ_WRITE, ((UUID(0x2908), ATT_F_READ),)),  # HID report / reference
+        (UUID(0x2A4E), F_READ_WRITE),  # HID protocol mode
+    ),
+)
+
+# fmt: off
+HID_REPORT_MAP = bytes([
+    0x05, 0x01,     # Usage Page (Generic Desktop)
+    0x09, 0x06,     # Usage (Keyboard)
+    0xA1, 0x01,     # Collection (Application)
+    0x85, 0x01,     #     Report ID (1)
+    0x75, 0x01,     #     Report Size (1)
+    0x95, 0x08,     #     Report Count (8)
+    0x05, 0x07,     #     Usage Page (Key Codes)
+    0x19, 0xE0,     #     Usage Minimum (224)
+    0x29, 0xE7,     #     Usage Maximum (231)
+    0x15, 0x00,     #     Logical Minimum (0)
+    0x25, 0x01,     #     Logical Maximum (1)
+    0x81, 0x02,     #     Input (Data, Variable, Absolute); Modifier byte
+    0x95, 0x01,     #     Report Count (1)
+    0x75, 0x08,     #     Report Size (8)
+    0x81, 0x01,     #     Input (Constant); Reserved byte
+    0x95, 0x05,     #     Report Count (5)
+    0x75, 0x01,     #     Report Size (1)
+    0x05, 0x08,     #     Usage Page (LEDs)
+    0x19, 0x01,     #     Usage Minimum (1)
+    0x29, 0x05,     #     Usage Maximum (5)
+    0x91, 0x02,     #     Output (Data, Variable, Absolute); LED report
+    0x95, 0x01,     #     Report Count (1)
+    0x75, 0x03,     #     Report Size (3)
+    0x91, 0x01,     #     Output (Constant); LED report padding
+    0x95, 0x06,     #     Report Count (6)
+    0x75, 0x08,     #     Report Size (8)
+    0x15, 0x00,     #     Logical Minimum (0)
+    0x25, 0x65,     #     Logical Maximum (101)
+    0x05, 0x07,     #     Usage Page (Key Codes)
+    0x19, 0x00,     #     Usage Minimum (0)
+    0x29, 0x65,     #     Usage Maximum (101)
+    0x81, 0x00,     #     Input (Data, Array); Key array (6 bytes)
+    0xC0,           # End Collection
+])
+# fmt: on
+
+# register services
+ble.config(gap_name="FreedormSworn")
+handles = ble.gatts_register_services((hid_service,))
+print(handles)
+h_info, h_hid, _, h_rep, h_d1, _, h_d2, h_proto = handles[0]
+
+# set initial data
+ble.gatts_write(h_info, b"\x01\x01\x00\x02")  # HID info: ver=1.1, country=0, flags=normal
+ble.gatts_write(h_hid, HID_REPORT_MAP)  # HID report map
+ble.gatts_write(h_d1, struct.pack("<BB", 1, 1))  # report: id=1, type=input
+ble.gatts_write(h_d2, struct.pack("<BB", 1, 2))  # report: id=1, type=output
+ble.gatts_write(h_proto, b"\x01")  # protocol mode: report
+
+# advertise
+adv = (
+    b"\x02\x01\x06"
+    b"\x03\x03\x12\x18"  # complete list of 16-bit service UUIDs: 0x1812
+    b"\x03\x19\xc1\x03"  # appearance: keyboard
+    b"\x0c\x09MP-keyboard"  # complete local name
+)
+conn_handle = None
+ble.gap_advertise(100_000, adv)
+
+# once connected use the following to send reports
+def send_char(char):
+    if char == " ":
+        mod = 0
+        code = 0x2C
+    elif ord("a") <= ord(char) <= ord("z"):
+        mod = 0
+        code = 0x04 + ord(char) - ord("a")
+    elif ord("A") <= ord(char) <= ord("Z"):
+        mod = 2
+        code = 0x04 + ord(char) - ord("A")
+    elif char == "0":
+        mod = 0
+        code = 0x27
+    elif ord("1") <= ord(char) <= ord("9"):
+        mod = 0
+        code = 0x1E + ord(char) - ord("1")
+    else:
+        assert 0
+    ble.gatts_notify(conn_handle, h_rep, struct.pack("8B", mod, 0, code, 0, 0, 0, 0, 0))
+    ble.gatts_notify(conn_handle, h_rep, b"\x00\x00\x00\x00\x00\x00\x00\x00")
+
+
+def send_str(st):
+    for c in st:
+        send_char(c)
+```
 
 ### Enclosure / Mechanical Design   
 
-Explain how you made the enclosure or any other physical or mechanical aspects of your project with photos, screenshots of relevant files such as laser-cut patterns, 3D models, etc. (it’s great if you’re willing to share the editable source files too!)
+The design of the sword is originally from the Game: Genshin Impact and the sword "Freedom Sworn"
+![FreedomSworn](../Final%20Project/Images/FreedomSworn.jpg) 
+What I did it to redesign it in order to fit the hardwares which I wanted to apply into the sword.
+In order to fit the Dual-Button, The LED Strip and cables into it, I tried three times and successfully managed them at last.
+Here's my design graph in illustrator
+![FreedomSwornAI](../Final%20Project/Images/AIFile.png) 
+For the glove, I tried to find a cool looking glove, and it took me a long time to manage different cables to make it work
+Here are the showcases of the glove and sword:
+![FreedomSwornShowCase](../Final%20Project/Images/ShowCase1.png) 
+![GloveShowCase](../Final%20Project/Images/ShowCase2.png) 
+
 
 ## Project outcome  
 
-Summarize the results of your final project implementation and include at least 2 photos of the prototype and a video walkthrough of the functioning demo.
+From this project, not only did I learned how to write programs better, but I also did I enhanced my skill of designing and making hand-made stuffs.
+For the programming part, I now have the ability to know micropython better, to understand how different devices and connect together, and how those devices are able to connect to the Internet. It is really important for me to understand all of those things before I push my interactive design into the next level.
+For the hand-making part, this is my first time to make a "Real-Sword", from the first version to the final outcome, I understood how could I make a real hand-made prototype and getting through troubles. Meanwhile, improving the hand-made skill is also beneficial for me to do my own physical interaction projects in the future.
 
 ## Conclusion  
 
