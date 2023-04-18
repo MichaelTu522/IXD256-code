@@ -354,13 +354,20 @@ def send_str(st):
 ### Enclosure / Mechanical Design   
 
 The design of the sword is originally from the Game: Genshin Impact and the sword "Freedom Sworn"
+
 ![FreedomSworn](../Final%20Project/Images/FreedomSworn.jpg) 
+
 What I did it to redesign it in order to fit the hardwares which I wanted to apply into the sword.
 In order to fit the Dual-Button, The LED Strip and cables into it, I tried three times and successfully managed them at last.
+
 Here's my design graph in illustrator
+
 ![FreedomSwornAI](../Final%20Project/Images/AIFile.png) 
-For the glove, I tried to find a cool looking glove, and it took me a long time to manage different cables to make it work
-Here are the showcases of the glove and sword:
+
+For the glove, I tried to find a cool-looking glove, and it took me a long time to manage different cables to make the glove work...
+
+###Here are the showcases of the glove and sword:
+
 ![FreedomSwornShowCase](../Final%20Project/Images/ShowCase1.png) 
 ![GloveShowCase](../Final%20Project/Images/ShowCase2.png) 
 
