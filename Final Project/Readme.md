@@ -18,15 +18,16 @@ After the first round of critic, I was thinking about:
 ### That's why I came up with both of my final ideas:
 ## A sword and A Glove to play the game "Genshin Impact"
 ![Final Concept Sketch](../Final%20Project/Images/FinalConceptSketch.png) 
+
 For the sword, I want it to be the sword used by my favorite male character: Kaedehara Kazuha
 ![Kazuha and his sword](../Final%20Project/Images/Kazuha.png) 
 And the name of the sword is "Freedom Sworn"
 
-For the glove, I still want to combine the vibration feedback, and by adding sensors like Bent Sensor and Pressure Sensor, I can make the glove control multiple things like walking, Run, and Jump, which could be useful when playing the game.
+For the glove, I still want to combine the vibration feedback. Moreover, by adding sensors like Bent Sensor and Pressure Sensor, I can make the glove control multiple motions like Walking, Run, and Jump, which could be useful when playing the game.
 
 ## Implementation   
-
 During my development, I was thinking about how I could apply all those ingredients in all the concept I had, so I just tried to apply all of them.
+
 ### The Hardware Part includes:
 * 2 Atom Matrix (Using their 25-Pixel Screen and 3-Axis Accelerator Mainly)
 * A bent / Pressure Sensor for The Magic Glove
@@ -63,7 +64,6 @@ During my development, I was thinking about how I could apply all those ingredie
 
 [Code for Magic Glove](../Final%20Project/MagicGlove.py) 
 
-To include code snippets, you can use the code block markdown, like this:
 For the glove, the Command of "JUMP" and "Vibration" is like:
 ``` Python  
 if (analog_val <= 4000): #If the button Press is detected
