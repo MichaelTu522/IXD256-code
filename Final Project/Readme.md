@@ -22,7 +22,7 @@ For the sword, I want it to be the sword used by my favorite male character: Kae
 ![Kazuha and his sword](../Final%20Project/Images/Kazuha.png) 
 And the name of the sword is "Freedom Sworn"
 
-For the glove, I still want to combine the vibration feedback, and by adding sensors like: Bent Sensor and Pressure Sensor, I can make the glove to control multiple things like Walk, Run and Jump, which could be useful when playing the game.
+For the glove, I still want to combine the vibration feedback, and by adding sensors like Bent Sensor and Pressure Sensor, I can make the glove control multiple things like walking, Run, and Jump, which could be useful when playing the game.
 
 ## Implementation   
 
@@ -187,7 +187,8 @@ def display_digit(m):
     neopixel_strip.write()
 ```
 
-For the sword, I also did the "Send Char" Function to make the attack, meanwhile the character is Attacking, the lightstrip would also be turned on. The brightness of the strip is depending on how much force you used to do the attack.
+For the sword, I also did the "Send Char" Function to make the attack, meanwhile, the character is Attacking, and the light strip would also be turned on. The brightness of the strip is depending on how much force you used to do the attack.
+
 The code is like this:
 ``` Python  
 if (analog_val <= 4000): #If the button Press is detected
@@ -233,7 +234,7 @@ if (analog_val <= 4000): #If the button Press is detected
 
 ### Software & Integrations 
 
-Since I didn't use the IFTTT and AdafruitIO, the most important part for me is the bluetooth, the function to apply is also complicated
+Since I didn't use the IFTTT and AdafruitIO, the most important part for me is the Bluetooth, the function to apply is also complicated
 ``` Python
 ble = bluetooth.BLE()
 ble.active(1)
@@ -366,13 +367,11 @@ Here are the showcases of the glove and sword:
 
 ## Project outcome  
 
-From this project, not only did I learned how to write programs better, but I also did I enhanced my skill of designing and making hand-made stuffs.
-For the programming part, I now have the ability to know micropython better, to understand how different devices and connect together, and how those devices are able to connect to the Internet. It is really important for me to understand all of those things before I push my interactive design into the next level.
-For the hand-making part, this is my first time to make a "Real-Sword", from the first version to the final outcome, I understood how could I make a real hand-made prototype and getting through troubles. Meanwhile, improving the hand-made skill is also beneficial for me to do my own physical interaction projects in the future.
+From this project, not only did I learn how to write programs better, but I also did I enhanced my skill of designing and making hand-made stuff. For the programming part, I now have the ability to know micro python better, to understand how different devices connect together, and how those devices are able to connect to the Internet. It is really important for me to understand all of those things before I push my interactive design to the next level. For the hand-making part, this is my first time making a "Real-Sword", from the first version to the final outcome, I understood how could I make a real hand-made prototype and get through troubles. Meanwhile, improving my hand-made skill is also beneficial for me to do my own physical interaction projects in the future.
 
 ## Conclusion  
 
-This term is the first term I really got a feeling of how to learn and write codes, before finishing the final project, I never thought I can push those three ideas so far. Because of this, I think this project really give me the opportunity to do the design that combines physical and digital interactions together. And moreover, I'm also feel happy that I could create something real for the game I love and make them work!
+This term is the first term I really got a feeling of how to learn and write codes, before finishing the final project, I never thought I can push those three ideas so far. Because of this, I think this project really gives me the opportunity to do a design that combines physical and digital interactions together. And moreover, I also feel happy that I could create something real for the game I love and make them work!
 
 ## Project references  
 
