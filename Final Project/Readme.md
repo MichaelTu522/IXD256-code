@@ -50,9 +50,9 @@ During my development, I was thinking about how I could apply all those ingredie
 ## Schematic diagram
 
 # The Diagram for FreedomSworn 
-![Diagram for FreedomSworn](../Final%20Project/Images/FreedomSwornDiagram) 
+![Diagram for FreedomSworn](../Final%20Project/Images/FreedomSwornDiagram.png) 
 # The Diagram for MagicGlove
-![Diagram for MagicGlove](../Final%20Project/Images/MagicGloveDiagram) 
+![Diagram for MagicGlove](../Final%20Project/Images/MagicGloveDiagram.png) 
 
 ## Making Process / Hardware Wiring
 ![Kazuha and his sword](../Final%20Project/Images/Process.png) 
@@ -60,6 +60,7 @@ During my development, I was thinking about how I could apply all those ingredie
 ### Firmware and Codes 
 
 [Code for FreedomSworn](../Final%20Project/FreedomSworn.py) 
+
 [Code for Magic Glove](../Final%20Project/MagicGlove.py) 
 
 To include code snippets, you can use the code block markdown, like this:
@@ -377,5 +378,6 @@ This term is the first term I really got a feeling of how to learn and write cod
 
 Links for Freedom Sworn Exploration:
 https://genshin-impact.fandom.com/wiki/Freedom-Sworn
+
 Links for ideas of Vibration Gloves
 https://www.youtube.com/watch?v=NJwFG0EoS7E
