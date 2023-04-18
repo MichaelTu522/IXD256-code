@@ -366,7 +366,7 @@ Here's my design graph in illustrator
 
 For the glove, I tried to find a cool-looking glove, and it took me a long time to manage different cables to make the glove work...
 
-###Here are the showcases of the glove and sword:
+### Here are the showcases of the glove and sword:
 
 ![FreedomSwornShowCase](../Final%20Project/Images/ShowCase1.png) 
 ![GloveShowCase](../Final%20Project/Images/ShowCase2.png) 
