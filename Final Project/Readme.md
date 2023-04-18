@@ -50,17 +50,17 @@ During my development, I was thinking about how I could apply all those ingredie
 ## Schematic diagram
 
 # The Diagram for FreedomSworn 
-![Diagram for FreedomSworn](../Final%20Project/FreedomSwornDiagram) 
+![Diagram for FreedomSworn](../Final%20Project/Images/FreedomSwornDiagram) 
 # The Diagram for MagicGlove
-![Diagram for MagicGlove](../Final%20Project/MagicGloveDiagram) 
+![Diagram for MagicGlove](../Final%20Project/Images/MagicGloveDiagram) 
 
 ## Making Process / Hardware Wiring
 ![Kazuha and his sword](../Final%20Project/Images/Process.png) 
 
 ### Firmware and Codes 
 
-![Code for FreedomSworn](../Final%20Project/FreedomSworn.py) 
-![Code for Magic Glove](../Final%20Project/MagicGlove.py) 
+[Code for FreedomSworn](../Final%20Project/FreedomSworn.py) 
+[Code for Magic Glove](../Final%20Project/MagicGlove.py) 
 
 To include code snippets, you can use the code block markdown, like this:
 For the glove, the Command of "JUMP" and "Vibration" is like:
@@ -371,8 +371,11 @@ For the hand-making part, this is my first time to make a "Real-Sword", from the
 
 ## Conclusion  
 
-As you wrap up the project, reflect on your experience of creating it.  Use this as an opportunity to mention any discoveries or challenges you came across along the way.  If there is anything you would have done differently, or have a chance to continue the project development given more time or resources, it’s a good way to conclude this section.
+This term is the first term I really got a feeling of how to learn and write codes, before finishing the final project, I never thought I can push those three ideas so far. Because of this, I think this project really give me the opportunity to do the design that combines physical and digital interactions together. And moreover, I'm also feel happy that I could create something real for the game I love and make them work!
 
 ## Project references  
 
-Please include links to any online resources like videos or tutorials that you may have found helpful in your process of implementing the prototype. If you used any substantial code from an online resource, make sure to credit the author(s) or sources.
+Links for Freedom Sworn Exploration:
+https://genshin-impact.fandom.com/wiki/Freedom-Sworn
+Links for ideas of Vibration Gloves
+https://www.youtube.com/watch?v=NJwFG0EoS7E
