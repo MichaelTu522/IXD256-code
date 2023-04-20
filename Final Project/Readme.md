@@ -36,7 +36,7 @@ During my development, I was thinking about how I could apply all those ingredie
 * A Dual-Button Pack for The FreedomSworn
 
 ### The Software Part Includes:
-* Circuit Python
+* Mirco Python
 
 ### The Integrations Include:
 * UIFlow
@@ -387,3 +387,19 @@ https://genshin-impact.fandom.com/wiki/Freedom-Sworn
 
 Links for ideas of Vibration Gloves
 https://www.youtube.com/watch?v=NJwFG0EoS7E
+
+### Product List
+
+Atom Matrix: https://shop.m5stack.com/products/atom-matrix-esp32-development-kit
+
+Digital RGB LED Weatherproof Strip SK6812: https://shop.m5stack.com/products/digital-rgb-led-weatherproof-strip-sk6812
+
+Mini Dual Button Unit: https://shop.m5stack.com/products/mini-dual-button-unit
+
+Vibration Motor Unit (N20): https://shop.m5stack.com/products/vibration-motor-unit
+
+Pressure Sensor MD30-60: https://www.amazon.com/dp/B07MP4RL9Q?psc=1&ref=ppx_yo2ov_dt_b_product_details
+
+Thin Film Pressure Sensor Flexible/Bend Sensor ZD10-100: https://www.amazon.com/dp/B093GNWG57?psc=1&ref=ppx_yo2ov_dt_b_product_details
+
+
